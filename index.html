@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    </head>
+    <button onclick="g()">add</button> <br> 
+    <div style="border: 1px solid;" id="d"></div>
+    <body>
+        <script>
+            var x=document.getElementById('d')
+            function g(){
+        axios.get('https://api.quotable.io/random').then(function(quote){
+                 console.log(quote)
+                 var d=quote.data
+            x.innerHTML=''
+            var a=document.createElement('p')
+            var c=document.createElement('p')
+
+            a.innerHTML=d.author
+            x.appendChild(a)
+
+            c.innerHTML=d.content
+            x.appendChild(c)
+            x.style.backgroundColor='red'
+        }) }       
+
+        </script>
+    </body>
+</html>
